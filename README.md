@@ -3,7 +3,6 @@
 &lt;div id='render'&gt;
   &lt;div id="template"&gt;
   	Name: &lt;div class="user_name"&gt;-&lt;/div&gt;
-  	
   	&lt;div class='game'&gt;
   		Game: &lt;span class='game_name'&gt;-&lt;/span&gt;
   	&lt;/div&gt;
