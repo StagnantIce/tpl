@@ -1,22 +1,22 @@
-<h1> jQuery easy template plugin <h1>
+<h1> jQuery easy template plugin </h1>
 
-<div id='render'>
-  <div id="template">
-  	Name: <div class="user_name">-</div>
+&lt;div id='render'&gt;
+  &lt;div id="template"&gt;
+  	Name: &lt;div class="user_name"&gt;-&lt;/div&gt;
   	
-  	<div class='game'>
-  		Game: <span class='game_name'>-</span>
-  	</div>
-  	<div class="sites">
-  		<div class="site">
+  	&lt;div class='game'&gt;
+  		Game: &lt;span class='game_name'&gt;-&lt;/span&gt;
+  	&lt;/div&gt;
+  	&lt;div class="sites"&gt;
+  		&lt;div class="site"&gt;
   			Site name:
-  			<div class='name'>-</div>
-  		</div>
-  	</div>
-  </div>
-</div>
+  			&lt;div class='name'&gt;-&lt;/div&gt;
+  		&lt;/div&gt;
+  	&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 
-<script>
+&lt;script&gt;
 $('#render').append(
 	$('#template').model({
 		'.user_name': 'Петр',
@@ -33,4 +33,4 @@ $('#render').append(
 	});
 );
 
-</script>
+&lt;/script&gt;
