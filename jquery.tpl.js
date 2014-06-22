@@ -18,11 +18,11 @@ $.fn.tpl = function(params) {
 			});
 			$(index, $scope).replaceWith(a.join(''));
 		} else if ($.isPlainObject(value)) {
-			$(index, $scope).replaceWith( $(index, $scope).t(value) );
+			$(index, $scope).replaceWith( $(index, $scope).tpl(value) );
 		} else {
 			$(index, $scope).html(value);
 		}
 	});
-
+	
 	return $scope.html();
 }
