@@ -1,35 +1,44 @@
 <h1> jQuery easy template plugin </h1>
 
-&lt;div id='render'&gt;
-  &lt;div id="template"&gt;
-  	Name: &lt;div class="user_name"&gt;-&lt;/div&gt;
-  	&lt;div class='game'&gt;
-  		Game: &lt;span class='game_name'&gt;-&lt;/span&gt;
-  	&lt;/div&gt;
-  	&lt;div class="sites"&gt;
-  		&lt;div class="site"&gt;
-  			Site name:
-  			&lt;div class='name'&gt;-&lt;/div&gt;
-  		&lt;/div&gt;
-  	&lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
+This plugin use html selectors to render data from html.
 
-&lt;script&gt;
+1) JavaScript html template look like simple html code. Template hide after render automaticaly.
+```html
+<div id="template">
+	Name <div class="user_name">-</div>
+	
+	<div class='game'>
+		Game <span class='game_name'>-</span>
+	</div>
+	<div class="sites">
+		<div class="site">
+			site url:
+			<div class='name'>-</div>
+		</div>
+	</div>
+</div>
+```
+
+2) Call jQuery functions to render data with objects, arrays and text.
+```javascript
 $('#render').append(
-	$('#template').model({
-		'.user_name': 'Петр',
-		'.site': [{'.name' : 1},{'.name' : 2},{'.name' : 3}],
+	$('#template').tpl({
+		'.user_name': 'ivan',
+		'.site': [{'.name' : 'google.com'},{'.name' : 'lines-98.ru'},{'.name' : 'pihpi.ru'}],
 		'.game' : {'.game_name' : 'World'}
 	})
 );
-	
+```
+
+3) Remove data simple, set false to selector.
+```javascript
 $('#render').append(
-	$('#template').model({
-		'.user_name': 'Петр' + i,
+	$('#template').tpl({
+		'.user_name': 'Ivan',
 		'.site': false,
 		'.game' : {'.game_name' : 'World'}
 	});
 );
 
-&lt;/script&gt;
+```
+
