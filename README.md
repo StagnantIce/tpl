@@ -17,6 +17,8 @@ This plugin use html selectors to render data from html.
 		</div>
 	</div>
 </div>
+
+<div id="render"></div>
 ```
 
 2) Call jQuery functions to render data with objects, arrays and text.
