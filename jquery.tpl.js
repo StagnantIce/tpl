@@ -20,7 +20,7 @@ $.fn.tpl = function(params) {
 		} else if ($.isFunction(value)) {
 			$.proxy(value, $(index, $scope))();
 		} else if ($.isPlainObject(value)) {
-			$(index, $scope).replaceWith( $(index, $scope).tpl(value) );
+			$(index, $scope).replaceWith( $('<div>').append( $(index, $scope).clone().html($(index, $scope).tpl(value))).html() );
 		} else {
 			$(index, $scope).html(value);
 		}
