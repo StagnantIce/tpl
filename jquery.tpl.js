@@ -5,6 +5,12 @@
   * @url https://github.com/StagnantIce/tpl.git
   */ 
 
+$.fn.outerHtml = function(s) {
+	var $obj = $(this).clone();
+	var s = s || $obj.html();
+	return $('<div>').append($obj.html(s)).html();
+}
+  
 $.fn.tpl = function(params) {
 	var $scope = $(this).clone();
 
@@ -14,13 +20,13 @@ $.fn.tpl = function(params) {
 		} else if ($.isArray(value)) {
 			var a = [];
 			$.each(value, function(i,v) {
-				a.push( $('<div>').append($(index, $scope).clone().html($(index, $scope).tpl(v))).html() );
+				a.push( $(index, $scope).outerHtml($(index, $scope).tpl(v) ) );
 			});
 			$(index, $scope).replaceWith(a.join(''));
 		} else if ($.isFunction(value)) {
 			$.proxy(value, $(index, $scope))();
 		} else if ($.isPlainObject(value)) {
-			$(index, $scope).replaceWith( $('<div>').append( $(index, $scope).clone().html($(index, $scope).tpl(value))).html() );
+			$(index, $scope).replaceWith( $(index, $scope).outerHtml($(index, $scope).tpl(value) ) );
 		} else {
 			$(index, $scope).html(value);
 		}

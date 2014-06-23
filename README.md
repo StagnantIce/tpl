@@ -58,3 +58,10 @@ $('#render').append(
 
 ```
 
+5) Outer html function as tool
+
+```javascript
+$('#render').outerHtml();
+$('#render').outerHtml('inner of render');
+```
+
