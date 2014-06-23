@@ -6,7 +6,7 @@
   */ 
 
 $.fn.tpl = function(params) {
-	var $scope = $(this).hide().clone().show();
+	var $scope = $(this).clone();
 
 	$.each(params, function(index, value){
 		if (value === false) {
@@ -14,15 +14,17 @@ $.fn.tpl = function(params) {
 		} else if ($.isArray(value)) {
 			var a = [];
 			$.each(value, function(i,v) {
-				a.push($(index, $scope).tpl(v));
+				a.push( $('<div>').append($(index, $scope).clone().html($(index, $scope).tpl(v))).html() );
 			});
 			$(index, $scope).replaceWith(a.join(''));
+		} else if ($.isFunction(value)) {
+			$.proxy(value, $(index, $scope))();
 		} else if ($.isPlainObject(value)) {
 			$(index, $scope).replaceWith( $(index, $scope).tpl(value) );
-		} else {
+		} else {g
 			$(index, $scope).html(value);
 		}
 	});
-	
+
 	return $scope.html();
 }

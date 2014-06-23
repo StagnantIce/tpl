@@ -2,9 +2,9 @@
 
 This plugin use html selectors to render data from html.
 
-1) JavaScript html template look like simple html code. Template hide after render automaticaly.
+1) JavaScript html template look like simple html code. 
 ```html
-<div id="template">
+<div id="template" style='display:none'>
 	Name <div class="user_name">-</div>
 	
 	<div class='game'>
@@ -22,6 +22,7 @@ This plugin use html selectors to render data from html.
 ```
 
 2) Call jQuery functions to render data with objects, arrays and text.
+
 ```javascript
 $('#render').append(
 	$('#template').tpl({
@@ -40,6 +41,19 @@ $('#render').append(
 		'.site': false,
 		'.game' : {'.game_name' : 'World'}
 	});
+);
+```
+
+4) Callback functions with other render functionality
+
+```javascript
+$('#render').append(
+	$('#template').tpl({
+		'.user_name': 'Ivan',
+		'div.site' : function() {$(this).addClass('new');},
+		'.site': [{'.name' : 1},{'.name' : 2},{'.name' : 3}],
+		'.game' : {'.game_name' : 'World'}
+	})
 );
 
 ```
