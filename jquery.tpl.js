@@ -21,7 +21,7 @@ $.fn.tpl = function(params) {
 			$.proxy(value, $(index, $scope))();
 		} else if ($.isPlainObject(value)) {
 			$(index, $scope).replaceWith( $(index, $scope).tpl(value) );
-		} else {g
+		} else {
 			$(index, $scope).html(value);
 		}
 	});
